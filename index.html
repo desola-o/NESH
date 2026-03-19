@@ -1,0 +1,1917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NESH Solutions Limited — Nigeria's #1 Facility Management Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Montserrat:wght@700;800&family=Outfit:wght@400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0d0d0d;
+    --white: #ffffff;
+    --off-white: #f5f3ee;
+    --cream: #f0ece4;
+    --dark-text: #1a1a1a;
+    --mid-text: #444;
+    --light-text: #888;
+    --border: rgba(0,0,0,0.1);
+    --accent: #1a1a1a;
+    --badge-bg: rgba(255,255,255,0.12);
+    --badge-border: rgba(255,255,255,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--dark-text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    height: 64px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-img {
+    height: 38px;
+    width: auto;
+    border-radius: 4px;
+    mix-blend-mode: screen; 
+  }
+
+  .logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14.25px; /* Increased by 50% from 9.5px */
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--white);
+    color: var(--black) !important;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-weight: 500 !important;
+    font-size: 13.5px !important;
+    text-decoration: none;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.9; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--black);
+    height: 100vh;
+    max-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-bg-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Increased darkness (higher opacity values) */
+    background: 
+      radial-gradient(circle at var(--mouse-x, -100%) var(--mouse-y, -100%), rgba(255,255,255,0.18) 0%, transparent 40%),
+      linear-gradient(to right, rgba(13,13,13,0.9) 20%, rgba(13,13,13,0.4) 100%);
+    z-index: 2;
+    pointer-events: none; 
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 80px 80px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .hero-content { 
+    max-width: 700px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--badge-bg);
+    border: 1px solid var(--badge-border);
+    border-radius: 100px;
+    padding: 6px 14px 6px 10px;
+    margin-bottom: 28px;
+  }
+  .hero-badge-dot {
+    width: 8px; height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+  }
+  .hero-badge-text {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 4.5vw, 62px);
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+
+  .hero-desc {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 36px;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--black);
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .hero-cta:hover { opacity: 0.9; }
+  .hero-cta svg { width: 16px; height: 16px; }
+
+  /* SECTION WRAPPER */
+  .section { padding: 96px 80px; max-width: 1440px; margin: 0 auto; }
+  .section-sm { padding: 80px 80px; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid-text);
+    margin-bottom: 20px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 20px; height: 1.5px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+
+  /* ABOUT */
+  .about-section { background: var(--off-white); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+  .about-left h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    color: var(--dark-text);
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+
+  .about-left p {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .about-right { display: flex; flex-direction: column; gap: 28px; padding-top: 8px; }
+
+  .problem-block, .solution-block {
+    border-radius: 14px;
+    padding: 28px 32px;
+  }
+  .problem-block {
+    background: rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+  }
+  .solution-block {
+    background: var(--black);
+    border: 1px solid var(--black);
+  }
+
+  .block-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .problem-block .block-eyebrow { color: var(--mid-text); }
+  .solution-block .block-eyebrow { color: rgba(255,255,255,0.45); }
+
+  .block-items { display: flex; flex-direction: column; gap: 10px; }
+  .block-item {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .problem-block .block-item { color: #555; }
+  .solution-block .block-item { color: rgba(255,255,255,0.7); }
+
+  /* Image ticker/marquee */
+  .marquee-wrap {
+    overflow: hidden;
+    margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .marquee-inner {
+    display: flex;
+    gap: 16px;
+    animation: marquee 28s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-inner img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* STATS */
+  .stats-section { background: var(--black); }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .stat-item {
+    padding: 48px 40px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 64px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 16px;
+    letter-spacing: -2px;
+    font-weight: 400;
+  }
+
+  .stat-label {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .stat-desc {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* SERVICES */
+  .services-section { background: var(--off-white); }
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+  }
+  .services-header-left h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    margin-top: 12px;
+  }
+  .services-header-right p {
+    font-size: 14.5px;
+    color: #666;
+    max-width: 320px;
+    line-height: 1.65;
+    text-align: right;
+    font-weight: 300;
+  }
+
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .service-item {
+    padding: 48px 32px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+  }
+  .service-item:nth-child(3n) { border-right: none; }
+  .service-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .service-img-wrap {
+    width: 100%;
+    height: 320px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .service-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .service-item:hover .service-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .service-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    color: rgba(0,0,0,0.25);
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  .service-item h4 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  .service-item p {
+    font-size: 13.5px;
+    color: #666;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* OUR WORK */
+  .work-section { background: var(--cream); }
+  .work-header { margin-bottom: 56px; }
+  .work-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    margin: 12px 0;
+  }
+  .work-header p {
+    font-size: 14.5px;
+    color: #666;
+    max-width: 420px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .work-cards { display: flex; flex-direction: column; gap: 0; }
+
+  .work-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    padding: 56px 0;
+  }
+  .work-card:last-child { border-bottom: 1px solid var(--border); }
+
+  .work-card-image {
+    overflow: hidden;
+    border-radius: 12px;
+    height: 380px;
+    background: #ddd;
+  }
+  .work-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
+  .work-card:hover .work-card-image img { transform: scale(1.04); }
+
+  .work-card-content {
+    padding: 0 0 0 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .work-card:nth-child(even) .work-card-image { order: 2; }
+  .work-card:nth-child(even) .work-card-content { order: 1; padding: 0 64px 0 0; }
+
+  .work-card-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .work-tag {
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #666;
+    background: rgba(0,0,0,0.06);
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .work-card-content h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark-text);
+    margin-bottom: 16px;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+
+  .work-card-content p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .work-testimonial {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .work-testimonial p {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .work-reviewer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .work-reviewer-avatar {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+  .work-reviewer-info {}
+  .work-reviewer-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark-text);
+    display: block;
+  }
+  .work-reviewer-company {
+    font-size: 11.5px;
+    color: #888;
+    display: block;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--black); overflow: hidden; }
+  .testimonials-header { margin-bottom: 48px; }
+
+  .testimonials-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin: 12px 0;
+  }
+  .testimonials-header p {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.45);
+    max-width: 420px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .testimonials-tracks { display: flex; flex-direction: column; gap: 16px; }
+  .testimonial-track {
+    display: flex;
+    gap: 16px;
+    animation: scroll-left 40s linear infinite;
+    width: max-content;
+  }
+  .testimonial-track.reverse { animation-direction: reverse; animation-duration: 35s; }
+
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 24px 28px;
+    width: 340px;
+    flex-shrink: 0;
+  }
+
+  .testimonial-stars {
+    color: #f59e0b;
+    font-size: 13px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .testimonial-card p {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 20px;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-author-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+    border: 1.5px solid rgba(255,255,255,0.15);
+  }
+  .testimonial-author-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--white);
+    display: block;
+  }
+  .testimonial-author-org {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    display: block;
+  }
+
+  /* FAQs */
+  .faq-section { background: var(--off-white); }
+  .faq-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+  .faq-header-left h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-top: 12px;
+  }
+  .faq-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .faq-header-right p {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    max-width: 280px;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .faq-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--black);
+    color: var(--white);
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .faq-cta:hover { opacity: 0.85; }
+
+  .faq-list { border-top: 1px solid var(--border); }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    cursor: pointer;
+    user-select: none;
+    gap: 20px;
+  }
+
+  .faq-question h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--dark-text);
+    letter-spacing: -0.1px;
+  }
+
+  .faq-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .faq-icon svg {
+    width: 12px; height: 12px;
+    stroke: var(--mid-text);
+    transition: transform 0.3s;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-answer-inner {
+    padding: 0 0 28px 0;
+    font-size: 14.5px;
+    color: #666;
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 680px;
+  }
+
+  .faq-item.open .faq-answer { max-height: 200px; }
+  .faq-item.open .faq-icon { background: var(--black); border-color: var(--black); }
+  .faq-item.open .faq-icon svg { stroke: var(--white); transform: rotate(45deg); }
+
+  /* CONTACT */
+  .contact-section { background: var(--black); }
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-left h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3vw, 44px);
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin: 12px 0 20px;
+  }
+
+  .contact-left > p {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 48px;
+  }
+
+  .contact-details { display: flex; flex-direction: column; gap: 32px; }
+
+  .contact-detail-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 6px;
+  }
+
+  .contact-detail-value {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 400;
+  }
+  .contact-detail-value a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+  }
+  .contact-detail-value a:hover { color: var(--white); }
+
+  /* Contact action buttons */
+  .contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .contact-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 14px 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-action-btn:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
+  }
+  .contact-action-btn span.icon { font-size: 18px; }
+
+  .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 14.5px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: rgba(255,255,255,0.35); }
+  .form-group textarea { resize: none; height: 120px; }
+
+  .form-submit {
+    background: var(--white);
+    color: var(--black);
+    border: none;
+    padding: 15px 28px;
+    border-radius: 100px;
+    font-size: 14.5px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    width: 100%;
+    transition: opacity 0.2s;
+    margin-top: 4px;
+  }
+  .form-submit:hover { opacity: 0.9; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 48px 80px;
+    max-width: 100%;
+  }
+
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo .logo-img {
+    height: 54px; 
+    mix-blend-mode: screen;
+  }
+
+  .footer-logo .logo-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px; /* Increased by 50% from 10px */
+    font-weight: 400;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    max-width: 300px;
+    line-height: 1.6;
+  }
+
+  .footer-links-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 16px;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-bottom {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-credit {
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-credit a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+  }
+  .footer-credit a:hover { color: rgba(255,255,255,0.85); }
+
+
+  /* RESPONSIVE – TABLET */
+  @media (max-width: 1024px) {
+    .hero-inner { padding: 0 40px 60px; }
+    .section { padding: 72px 40px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .services-list { grid-template-columns: repeat(2, 1fr); }
+    .services-list .service-item:nth-child(2n) { border-right: none; }
+    .services-list .service-item:nth-last-child(-n+2) { border-bottom: none; }
+    footer { padding: 40px; }
+  }
+
+  /* RESPONSIVE – MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; height: 56px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .logo-img { height: 30px; }
+    .logo-text { font-size: 12px; }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px; left: 0; right: 0; bottom: 0;
+      background: var(--black);
+      flex-direction: column;
+      padding: 32px 24px;
+      gap: 8px;
+      z-index: 99;
+      overflow-y: auto;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 18px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-weight: 400;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    .hero {
+      height: 70vh; /* Reduced length by 30% */
+    }
+
+    .hero-bg-image { height: 100%; }
+    .hero-overlay { background: rgba(13,13,13,0.8); }
+    
+    .hero-inner {
+      padding: 40px 20px 60px;
+    }
+    .hero-content { 
+      padding-right: 0; 
+      padding-top: 0; 
+      margin-top: auto; 
+    }
+
+    .section, .section-sm { padding: 56px 20px; }
+
+    .about-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 32px 24px; }
+    .stat-number { font-size: 48px; }
+    .stat-item:nth-child(1), .stat-item:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat-item:nth-child(4) { border-right: none; }
+
+    .services-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .services-header-right p { text-align: left; }
+
+    .services-list { grid-template-columns: 1fr; }
+    .services-list .service-item { border-right: none !important; border-bottom: 1px solid var(--border) !important; padding: 40px 0; }
+    .services-list .service-item:last-child { border-bottom: none !important; }
+
+    .work-card {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 40px 0;
+    }
+    .work-card-image { height: 260px; order: 1 !important; }
+    .work-card-content { padding: 0 !important; order: 2 !important; }
+
+    .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+
+    .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    footer { padding: 40px 20px; }
+
+    .faq-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+    .faq-header-right { align-items: flex-start; }
+    .faq-header-right p { text-align: left; }
+
+    .testimonials-header { padding: 0 20px !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="top">
+  <a href="#top" class="nav-logo">
+    <img src="https://i.ibb.co/rRwwDSym/20470.jpg" alt="NESH Logo" class="logo-img">
+    <span class="logo-text">NESH Solutions</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#our-work">Our Work</a></li>
+    <li><a href="#faqs">FAQs</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#our-work" onclick="toggleMenu()">Our Work</a>
+  <a href="#faqs" onclick="toggleMenu()">FAQs</a>
+  <a href="#contact" onclick="toggleMenu()">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-image">
+    <img src="https://i.ibb.co/FLKTN9bK/ariel-domenden-q-Bg-UUtr-T9-HQ-unsplash.jpg" alt="Professional facility management">
+  </div>
+  <div class="hero-overlay" id="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">Available for work</span>
+      </div>
+      <h1>Your Space, Our Responsibility</h1>
+      <p class="hero-desc">Nigeria's leading Facility Management and Real Estate Services company. We take the stress out of managing properties and business spaces — so you can focus on running your business.</p>
+      <a href="#services" class="hero-cta">
+        View our services
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h10M9 4l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="section">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="section-label">About Us</div>
+        <h3>We Keep Your World Running Smoothly</h3>
+        <p>We understand that every building is more than walls and floors — it's an investment, a workplace, and sometimes a home. At NESH, we provide seamless facility management and real estate solutions designed to meet the unique needs of business owners, homeowners, and contractors.</p>
+        <br>
+        <p>With a commitment to excellence, innovation, and professionalism, we ensure your properties run smoothly without interruptions. One partner. Endless solutions.</p>
+      </div>
+      <div class="about-right">
+        <div class="problem-block">
+          <div class="block-eyebrow">🚩 The Problem</div>
+          <div class="block-items">
+            <div class="block-item">Business owners struggle with daily facility challenges that distract from growth.</div>
+            <div class="block-item">Contractors need the final "finishing touch" before handing over projects.</div>
+            <div class="block-item">Homeowners desire stylish, functional, and well-maintained living spaces.</div>
+          </div>
+        </div>
+        <div class="solution-block">
+          <div class="block-eyebrow">🔑 Our Solution</div>
+          <div class="block-items">
+            <div class="block-item">NESH Solutions steps in to bridge these gaps with top-notch services that guarantee peace of mind, efficiency, and elegance — so you never have to worry about your space again.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee-inner">
+        <img src="https://framerusercontent.com/images/bwP8CYttC1lINgPtK7lQja0.png" alt="">
+        <img src="https://framerusercontent.com/images/RbmRrHiT87wxDx7Cox6FOA1sM3k.png" alt="">
+        <img src="https://framerusercontent.com/images/T4izJTXSEZ5xZgXG6FLkp3kwC2Y.png" alt="">
+        <img src="https://framerusercontent.com/images/A7yE2PBsrF4l2EgA4yTO9HiAcPQ.png" alt="">
+        <img src="https://framerusercontent.com/images/uIxBIlcieM1DRX71NtmymFxTUI.png" alt="">
+        <img src="https://framerusercontent.com/images/ww0GmyZcc1yAIo8GBgwRahYQjtc.png" alt="">
+        <img src="https://framerusercontent.com/images/ECStbC3dOFVPT3RaOm7LHxXgdfc.png" alt="">
+        <img src="https://framerusercontent.com/images/SAGfqf3mkOEFooPykUvG5BDmRXU.png" alt="">
+        <img src="https://framerusercontent.com/images/bwP8CYttC1lINgPtK7lQja0.png" alt="">
+        <img src="https://framerusercontent.com/images/RbmRrHiT87wxDx7Cox6FOA1sM3k.png" alt="">
+        <img src="https://framerusercontent.com/images/T4izJTXSEZ5xZgXG6FLkp3kwC2Y.png" alt="">
+        <img src="https://framerusercontent.com/images/A7yE2PBsrF4l2EgA4yTO9HiAcPQ.png" alt="">
+        <img src="https://framerusercontent.com/images/uIxBIlcieM1DRX71NtmymFxTUI.png" alt="">
+        <img src="https://framerusercontent.com/images/ww0GmyZcc1yAIo8GBgwRahYQjtc.png" alt="">
+        <img src="https://framerusercontent.com/images/ECStbC3dOFVPT3RaOm7LHxXgdfc.png" alt="">
+        <img src="https://framerusercontent.com/images/SAGfqf3mkOEFooPykUvG5BDmRXU.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-target="300" data-suffix="+">300+</div>
+        <div class="stat-label">Clients served</div>
+        <div class="stat-desc">Trusted by businesses, homeowners, and contractors across Nigeria</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="5" data-suffix="">5</div>
+        <div class="stat-label">Core service lines</div>
+        <div class="stat-desc">One partner covering facility management, design, cleaning, and more</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="100" data-suffix="%">100%</div>
+        <div class="stat-label">Client satisfaction</div>
+        <div class="stat-desc">Every client we serve leaves satisfied with the quality of our work</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-target="1" data-suffix="#">#1</div>
+        <div class="stat-label">In Nigeria</div>
+        <div class="stat-desc">Nigeria's leading facility management and real estate services company</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section">
+    <div class="services-header">
+      <div class="services-header-left">
+        <div class="section-label">Our Core Services</div>
+        <h3>One Partner. Endless Solutions.</h3>
+      </div>
+      <div class="services-header-right">
+        <p>Find out which one of our services fits the needs of your property or project</p>
+      </div>
+    </div>
+
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-img-wrap">
+          <img src="https://framerusercontent.com/images/T4izJTXSEZ5xZgXG6FLkp3kwC2Y.png" alt="Facility Management">
+        </div>
+        <div class="service-number">01</div>
+        <h4>Facility Management</h4>
+        <p>We handle the day-to-day running of your business buildings, ensuring they are safe, clean, functional, and compliant. From maintenance to utilities and vendor coordination, we ensure your building operates seamlessly — allowing you to focus on your business.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-img-wrap">
+          <img src="https://framerusercontent.com/images/uIxBIlcieM1DRX71NtmymFxTUI.png" alt="Interior Design">
+        </div>
+        <div class="service-number">02</div>
+        <h4>Interior Design &amp; Space Transformation</h4>
+        <p>We bring creativity, elegance, and functionality into your spaces. Whether it's a corporate office, retail outlet, or residential home, we design interiors that reflect style, innovation, and purpose tailored to your vision.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-img-wrap">
+          <img src="https://framerusercontent.com/images/ECStbC3dOFVPT3RaOm7LHxXgdfc.png" alt="Project Support">
+        </div>
+        <div class="service-number">03</div>
+        <h4>Project Support for Contractors</h4>
+        <p>Contractors, add the final touch of excellence to your projects with NESH. We help prepare, design, and deliver projects that exceed client expectations, giving you a competitive edge in the industry.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-img-wrap">
+          <img src="https://framerusercontent.com/images/SAGfqf3mkOEFooPykUvG5BDmRXU.png" alt="Procurement">
+        </div>
+        <div class="service-number">04</div>
+        <h4>General Contracts &amp; Procurement</h4>
+        <p>From sourcing quality materials to handling contracts with efficiency, our procurement team ensures your projects run on time, on budget, and at the highest quality — so nothing falls through the cracks.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-img-wrap">
+          <img src="https://framerusercontent.com/images/A7yE2PBsrF4l2EgA4yTO9HiAcPQ.png" alt="Cleaning">
+        </div>
+        <div class="service-number">05</div>
+        <h4>Commercial Cleaning Services</h4>
+        <p>A clean environment is a productive one. NESH provides reliable and professional cleaning services that leave your spaces spotless, healthy, and welcoming — every single time.</p>
+      </div>
+      <div class="service-item" style="border-right:none; background:rgba(0,0,0,0.01)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR WORK -->
+<section class="work-section" id="our-work">
+  <div class="section">
+    <div class="work-header">
+      <div class="section-label">Our Work</div>
+      <h3>We Don't Just Manage Buildings — We Create Peace of Mind</h3>
+      <p>See how we've transformed properties and spaces for businesses, homeowners, and contractors across Nigeria.</p>
+    </div>
+
+    <div class="work-cards">
+      <div class="work-card">
+        <div class="work-card-image">
+          <img src="https://framerusercontent.com/images/ffCQ9kReUH25ZCu6Q8kZxqQmMSY.png?width=960&height=1200" alt="Facility Management Project">
+        </div>
+        <div class="work-card-content">
+          <div class="work-card-tags">
+            <span class="work-tag">Facility Management</span>
+            <span class="work-tag">Ongoing</span>
+          </div>
+          <h4>Excellence at Scale</h4>
+          <p>Whether managing one building or multiple, we deliver consistent, professional service. Our facility management team handles every detail — from maintenance scheduling and utility oversight to vendor coordination — so building owners experience zero operational stress.</p>
+          <div class="work-testimonial">
+            <p>"Thanks for the quick response in getting your cleaning team to Okija on short notice. I appreciate the professionalism."</p>
+            <div class="work-reviewer">
+              <div class="work-reviewer-avatar">MI</div>
+              <div class="work-reviewer-info">
+                <span class="work-reviewer-name">Mr. Igwe</span>
+                <span class="work-reviewer-company">Hammakopp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-image">
+          <img src="https://i.ibb.co/DfXvNYwq/Website-Pik-4-1.jpg" alt="Interior Design Project">
+        </div>
+        <div class="work-card-content">
+          <div class="work-card-tags">
+            <span class="work-tag">Interior Design</span>
+            <span class="work-tag">Commercial</span>
+          </div>
+          <h4>Tailored Solutions for Every Space</h4>
+          <p>Every client is unique, so we customize services to your specific needs. From corporate offices to retail outlets and residential homes, our interior design and space transformation work brings creativity, elegance, and functionality into every environment we touch.</p>
+          <div class="work-testimonial">
+            <p>"Good morning Sharon. Thanks, your guys did an amazing job this week. They didn't disappoint... I appreciate."</p>
+            <div class="work-reviewer">
+              <div class="work-reviewer-avatar">DA</div>
+              <div class="work-reviewer-info">
+                <span class="work-reviewer-name">Mr. David Audu</span>
+                <span class="work-reviewer-company">KMA Architects</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-card-image">
+          <img src="https://framerusercontent.com/images/bwP8CYttC1lINgPtK7lQja0.png?width=1200&height=1200" alt="Residential Maintenance">
+        </div>
+        <div class="work-card-content">
+          <div class="work-card-tags">
+            <span class="work-tag">Residential</span>
+            <span class="work-tag">Ongoing</span>
+          </div>
+          <h4>Stress-Free Home Management</h4>
+          <p>We handle the daily details while you focus on what matters most. Our residential services cover cleaning, garden maintenance, and full property upkeep — delivering the clean, functional, and stylish living environment every homeowner deserves, consistently and reliably.</p>
+          <div class="work-testimonial">
+            <p>"I use NESH Solutions to keep my house clean and my garden well maintained. They never disappoint."</p>
+            <div class="work-reviewer">
+              <div class="work-reviewer-avatar">DO</div>
+              <div class="work-reviewer-info">
+                <span class="work-reviewer-name">Dr. Deji Orata</span>
+                <span class="work-reviewer-company">Residential Client</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="section" style="padding-left:0;padding-right:0;max-width:100%;">
+    <div class="testimonials-header" style="padding:0 80px;">
+      <div class="section-label" style="color:rgba(255,255,255,0.45);">Client Testimonials</div>
+      <h3 style="font-family:'DM Serif Display',serif;font-size:clamp(28px,3vw,44px);color:#fff;font-weight:400;letter-spacing:-0.5px;margin:12px 0;">Hear from our clients</h3>
+      <p style="font-size:14.5px;color:rgba(255,255,255,0.45);max-width:420px;line-height:1.65;font-weight:300;">Real feedback from the business owners, homeowners, and contractors who trust NESH Solutions every day.</p>
+    </div>
+
+    <div class="testimonials-tracks" style="margin-top:48px;">
+      <div class="testimonial-track" id="track1">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Thanks for the quick response in getting your cleaning team to Okija on short notice. I appreciate the professionalism."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">MI</div>
+            <div>
+              <span class="testimonial-author-name">Mr. Igwe</span>
+              <span class="testimonial-author-org">Hammakopp</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Your guys did an amazing job this week. They didn't disappoint. Exactly the kind of reliable partner we needed for our projects."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DA</div>
+            <div>
+              <span class="testimonial-author-name">Mr. David Audu</span>
+              <span class="testimonial-author-org">KMA Architects</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"I use NESH Solutions to keep my house clean and my garden well maintained. They never disappoint. Truly stress-free living."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DO</div>
+            <div>
+              <span class="testimonial-author-name">Dr. Deji Orata</span>
+              <span class="testimonial-author-org">Residential Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"NESH Solutions transformed our office space completely. Professional, on time, and the quality of work is outstanding. Highly recommended."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">AB</div>
+            <div>
+              <span class="testimonial-author-name">Adaeze Bright</span>
+              <span class="testimonial-author-org">Business Owner, Lagos</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"From procurement to final handover, NESH made our project seamless. Their attention to detail gave us a real edge with our client."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">EO</div>
+            <div>
+              <span class="testimonial-author-name">Emeka Okonkwo</span>
+              <span class="testimonial-author-org">Contractor, Abuja</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Reliable, professional, and always responsive. NESH Solutions is the only facility management company I trust for my commercial properties."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">FK</div>
+            <div>
+              <span class="testimonial-author-name">Funke Koleosho</span>
+              <span class="testimonial-author-org">Property Owner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Thanks for the quick response in getting your cleaning team to Okija on short notice. I appreciate the professionalism."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">MI</div>
+            <div>
+              <span class="testimonial-author-name">Mr. Igwe</span>
+              <span class="testimonial-author-org">Hammakopp</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Your guys did an amazing job this week. They didn't disappoint. Exactly the kind of reliable partner we needed for our projects."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DA</div>
+            <div>
+              <span class="testimonial-author-name">Mr. David Audu</span>
+              <span class="testimonial-author-org">KMA Architects</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"I use NESH Solutions to keep my house clean and my garden well maintained. They never disappoint. Truly stress-free living."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DO</div>
+            <div>
+              <span class="testimonial-author-name">Dr. Deji Orata</span>
+              <span class="testimonial-author-org">Residential Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"NESH Solutions transformed our office space completely. Professional, on time, and the quality of work is outstanding."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">AB</div>
+            <div>
+              <span class="testimonial-author-name">Adaeze Bright</span>
+              <span class="testimonial-author-org">Business Owner, Lagos</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"From procurement to final handover, NESH made our project seamless. Their attention to detail gave us a real edge."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">EO</div>
+            <div>
+              <span class="testimonial-author-name">Emeka Okonkwo</span>
+              <span class="testimonial-author-org">Contractor, Abuja</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Reliable, professional, and always responsive. NESH Solutions is the only facility management company I trust."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">FK</div>
+            <div>
+              <span class="testimonial-author-name">Funke Koleosho</span>
+              <span class="testimonial-author-org">Property Owner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-track reverse" id="track2">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Reliable, professional, and always responsive. NESH Solutions is the only facility management company I trust for my commercial properties."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">FK</div>
+            <div>
+              <span class="testimonial-author-name">Funke Koleosho</span>
+              <span class="testimonial-author-org">Property Owner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"From procurement to final handover, NESH made our project seamless. Their attention to detail gave us a real edge with our client."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">EO</div>
+            <div>
+              <span class="testimonial-author-name">Emeka Okonkwo</span>
+              <span class="testimonial-author-org">Contractor, Abuja</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"NESH Solutions transformed our office space completely. Professional, on time, and the quality of work is outstanding."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">AB</div>
+            <div>
+              <span class="testimonial-author-name">Adaeze Bright</span>
+              <span class="testimonial-author-org">Business Owner, Lagos</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"I use NESH Solutions to keep my house clean and my garden well maintained. They never disappoint. Truly stress-free living."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DO</div>
+            <div>
+              <span class="testimonial-author-name">Dr. Deji Orata</span>
+              <span class="testimonial-author-org">Residential Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Your guys did an amazing job this week. They didn't disappoint. Exactly the kind of reliable partner we needed."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DA</div>
+            <div>
+              <span class="testimonial-author-name">Mr. David Audu</span>
+              <span class="testimonial-author-org">KMA Architects</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Thanks for the quick response in getting your cleaning team to Okija on short notice. I appreciate the professionalism."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">MI</div>
+            <div>
+              <span class="testimonial-author-name">Mr. Igwe</span>
+              <span class="testimonial-author-org">Hammakopp</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Reliable, professional, and always responsive. NESH Solutions is the only facility management company I trust."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">FK</div>
+            <div>
+              <span class="testimonial-author-name">Funke Koleosho</span>
+              <span class="testimonial-author-org">Property Owner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"From procurement to final handover, NESH made our project seamless. Their attention to detail gave us a real edge."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">EO</div>
+            <div>
+              <span class="testimonial-author-name">Emeka Okonkwo</span>
+              <span class="testimonial-author-org">Contractor, Abuja</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"NESH Solutions transformed our office space completely. Professional, on time, and the quality of work is outstanding."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">AB</div>
+            <div>
+              <span class="testimonial-author-name">Adaeze Bright</span>
+              <span class="testimonial-author-org">Business Owner, Lagos</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"I use NESH Solutions to keep my house clean and my garden well maintained. They never disappoint."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DO</div>
+            <div>
+              <span class="testimonial-author-name">Dr. Deji Orata</span>
+              <span class="testimonial-author-org">Residential Client</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Your guys did an amazing job this week. They didn't disappoint. Exactly the kind of reliable partner we needed."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">DA</div>
+            <div>
+              <span class="testimonial-author-name">Mr. David Audu</span>
+              <span class="testimonial-author-org">KMA Architects</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Thanks for the quick response in getting your cleaning team to Okija on short notice. I appreciate the professionalism."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">MI</div>
+            <div>
+              <span class="testimonial-author-name">Mr. Igwe</span>
+              <span class="testimonial-author-org">Hammakopp</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQs -->
+<section class="faq-section" id="faqs">
+  <div class="section">
+    <div class="faq-header">
+      <div class="faq-header-left">
+        <div class="section-label">FAQs</div>
+        <h3>Answering your questions</h3>
+      </div>
+      <div class="faq-header-right">
+        <p>Got more questions? Send us your enquiry and we'll get back to you promptly.</p>
+        <a href="#contact" class="faq-cta">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>What areas in Nigeria do you serve?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We are headquartered in Lekki, Lagos and primarily serve clients across Lagos State and surrounding areas. Depending on the scope of the project, we can also travel to other states. Contact us to discuss your location and specific needs.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Do you offer one-off services or ongoing contracts?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We offer both. Whether you need a one-time deep clean, a single interior design project, or a long-term facility management contract, we tailor our services to match your exact requirements and budget.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>How quickly can you mobilise a team?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We pride ourselves on rapid response. For urgent requests — such as emergency cleaning or short-notice project support — we can typically mobilise a team within 24–48 hours depending on location and scope.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Do you work with contractors and developers?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Absolutely. Project support for contractors is one of our core service lines. We help you add the final touch of excellence to your projects — from interior finishing and cleaning to procurement — so you hand over with confidence.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>Can NESH handle multiple buildings or locations?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. We are set up to manage multiple properties simultaneously, delivering the same consistent standard of service whether you have one building or an entire portfolio. We scale with your business.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <h4>How do I request a consultation or quote?</h4>
+          <div class="faq-icon">
+            <svg viewBox="0 0 14 14" fill="none" stroke-width="2" stroke-linecap="round">
+              <line x1="7" y1="2" x2="7" y2="12"/><line x1="2" y1="7" x2="12" y2="7"/>
+            </svg>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Simply fill in the contact form below, send us a WhatsApp message, or give us a call. We'll schedule a consultation to understand your needs and provide a detailed, obligation-free quote.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="section">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <div class="section-label" style="color:rgba(255,255,255,0.45);">Contact</div>
+        <h3>Ready to Experience Stress-Free Facility Management?</h3>
+        <p>Let NESH Solutions Limited manage your facilities, transform your spaces, and simplify your operations. Partner with Nigeria's #1 Facility Management Company today.</p>
+        <div class="contact-details">
+          <div>
+            <div class="contact-detail-label">Office</div>
+            <div class="contact-detail-value">Lekki Town Square Mall, Providence Street, Lekki, Lagos</div>
+          </div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value"><a href="mailto:neshsolutions01@gmail.com">neshsolutions01@gmail.com</a></div>
+          </div>
+          <div>
+            <div class="contact-detail-label">Telephone</div>
+            <div class="contact-detail-value"><a href="tel:08166220701">0816 622 0701</a></div>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:08166220701" class="contact-action-btn">
+            <span class="icon">📞</span> Call us now
+          </a>
+          <a href="https://wa.me/2348166220701" class="contact-action-btn" target="_blank" rel="noopener">
+            <span class="icon">💬</span> WhatsApp us
+          </a>
+          <a href="mailto:neshsolutions01@gmail.com" class="contact-action-btn">
+            <span class="icon">📩</span> Send an email
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Name *</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="08XX XXX XXXX">
+          </div>
+          <div class="form-group">
+            <label>Message *</label>
+            <textarea placeholder="Tell us about your property or project..."></textarea>
+          </div>
+          <button class="form-submit">Schedule a consultation</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="#top" class="footer-logo">
+        <img src="https://i.ibb.co/rRwwDSym/20470.jpg" alt="NESH Logo" class="logo-img">
+        <span class="logo-text">NESH Solutions</span>
+      </a>
+      <p class="footer-tagline">Nigeria's leading Facility Management and Real Estate Services company. Your space, our responsibility.</p>
+    </div>
+    <div>
+      <div class="footer-links-label">Quick links</div>
+      <ul class="footer-links">
+        <li><a href="#about">About us</a></li>
+        <li><a href="#services">Our services</a></li>
+        <li><a href="#our-work">Our work</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 NESH Solutions Limited. All rights reserved.</span>
+    <span class="footer-credit">Web Design by <a href="#">GrowthMonkey</a></span>
+  </div>
+</footer>
+
+<script>
+  // Flashlight Effect
+  const hero = document.getElementById('hero');
+  
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    hero.style.setProperty('--mouse-x', x + '%');
+    hero.style.setProperty('--mouse-y', y + '%');
+  });
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hb = document.getElementById('hamburger');
+    menu.classList.toggle('open');
+    hb.classList.toggle('active');
+  }
+
+  const style = document.createElement('style');
+  style.textContent = `.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}.hamburger.active span:nth-child(2){opacity:0}.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}`;
+  document.head.appendChild(style);
+
+  function animateCounter(el, target, suffix) {
+    const isHash = suffix === '#';
+    if (isHash) { el.textContent = '#1'; return; }
+    const duration = 2000;
+    const start = performance.now();
+    const update = (time) => {
+      const elapsed = time - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(ease * target);
+      el.textContent = value + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.dataset.animated) {
+        entry.target.dataset.animated = '1';
+        const nums = entry.target.querySelectorAll('.stat-number');
+        nums.forEach(el => {
+          const target = parseInt(el.dataset.target);
+          const suffix = el.dataset.suffix;
+          animateCounter(el, target, suffix);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsGrid = document.querySelector('.stats-grid');
+  if (statsGrid) observer.observe(statsGrid);
+</script>
+
+</body>
+</html>
